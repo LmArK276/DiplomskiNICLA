@@ -1,0 +1,9 @@
+# Ignore VSCode settings
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+
+# Ignore build outputs
+BuildOutputs/
+
+# Ignore libraries, should be downloaded manually 
+libraries/
