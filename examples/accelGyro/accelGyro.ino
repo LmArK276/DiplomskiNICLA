@@ -4,7 +4,7 @@ SensorXYZ accelerometer(SENSOR_ID_ACC);
 SensorXYZ gyro(SENSOR_ID_GYRO);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200, SERIAL_8N1);
   BHY2.begin();
 
   accelerometer.begin();
