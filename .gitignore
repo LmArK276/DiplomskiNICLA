@@ -4,3 +4,6 @@
 
 # Ignore build outputs
 BuildOutputs/
+
+# Ignore libraries, should be downloaded manually 
+libraries/
