@@ -43,3 +43,55 @@ Arduino SAMD Boards
 
 ## Libraries:
 WifiNINA
+
+# Board communication:
+
+## PC passthrough:
+We need to change the App.ino file from the examples folder in the ArduinoBHY2 library like this:
+
+Instead of:
+```c
+BHY2.begin();
+```
+
+We will use:
+```c
+BHY2.begin(NICLA_I2C, NICLA_VIA_ESLOV);
+```
+
+Then, we upload this .ino file to the Nicla board.
+
+Afther that, we upload the Passthrough.ino file from the Arduino_BHY2Host library to the Arduino MKR board.
+
+The tools folder is downloaded from https://github.com/arduino/nicla-sense-me-fw
+repository.
+
+We can use a Go script to communicate with the Nicla Sense board through the Arduino MKR board from the PC's terminal
+
+Before we do that, it is necessary to build the go script, and for that we need to have GoLang installed.
+
+When we install GoLang, we must navigate to the tools\bhy-controller\src
+folder, and the run the go build command to build the tool.
+
+Then, we can use the following commands to read the values from the sensor:
+
+```console
+# list available serial ports
+./bhy list
+
+# read available sensor data
+./bhy sensor read -p /dev/ttyACM2
+
+# continuously read sensor data when available
+./bhy sensor read -live -p /dev/ttyACM2
+
+# configure sensor 10 with a sample rate of 1 Hz and latency of 0ms
+./bhy sensor config -p /dev/ttyACM2 -sensor 10 -rate 1 -latency 0
+
+# disable sensor 10
+./bhy sensor config -p /dev/ttyACM2 -sensor 10 -rate 0 -latency 0
+```
+For all of this to work we need to replace /dev/ttyACM2 with the appropriate
+port we recieved from the ./bhy list command
+
+We can change the sensor we are reading by changing the ID after the -sensor flag.

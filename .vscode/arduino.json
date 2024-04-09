@@ -1,6 +1,6 @@
 {
     "board": "arduino:samd:mkrwifi1010",
-    "port": "COM5",
-    "sketch": "MKRExamples\\ledBlink\\ledBlink.ino",
+    "port": "COM7",
+    "sketch": "libraries\\Arduino_BHY2Host\\examples\\Passthrough\\Passthrough.ino",
     "output": "BuildOutputs"
 }
