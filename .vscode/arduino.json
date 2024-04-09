@@ -1,6 +1,6 @@
 {
-    "board": "arduino:mbed_nicla:nicla_sense",
-    "port": "COM4",
-    "sketch": "examples\\activity\\activity.ino",
+    "board": "arduino:samd:mkrwifi1010",
+    "port": "COM5",
+    "sketch": "MKRExamples\\ledBlink\\ledBlink.ino",
     "output": "BuildOutputs"
 }
